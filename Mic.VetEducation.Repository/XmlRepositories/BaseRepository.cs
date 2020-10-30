@@ -20,6 +20,22 @@ namespace Mic.VetEducation.Repository.XmlRepositories
 
         public string FileName { get; private set; }
 
+        public TModel ReadOrDefult(int id)
+        {
+            _source.TryGetValue(id, out TModel model);
+            return model;            
+        }
+
+        public TModel Read(int id)
+        {
+            if(!_source.TryGetValue(id, out TModel model))
+            {
+                throw new Exception($"There is no {typeof(TModel).Name} with {id} Id");
+            }
+
+            return model;
+        }
+
         public IEnumerable<TModel> ReadAll()
         {
             if (!_isLoaded)
@@ -41,6 +57,7 @@ namespace Mic.VetEducation.Repository.XmlRepositories
             return _source.Values;
         }
 
+        
         public List<TModel> ReadToList()
         {
             return ReadAll().ToList();
