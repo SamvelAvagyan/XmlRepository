@@ -9,8 +9,8 @@ namespace Mic.VetEducation.Repository.XmlRepositories
     public class BaseRepository<TModel> : IBaseRepository<TModel>
         where TModel : BaseModel, new() 
     {
-        bool _isLoaded;
-        Dictionary<int, TModel> _source;
+        private bool _isLoaded;
+        private Dictionary<int, TModel> _source;
 
         public BaseRepository(string fileName)
         {
