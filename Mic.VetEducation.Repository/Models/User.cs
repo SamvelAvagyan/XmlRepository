@@ -1,12 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Mic.VetEducation.Repository.Models
+﻿namespace Mic.VetEducation.Repository.Models
 {
-    public class User
+    public class User : BaseModel
     {
-        public int ID { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public byte Age { get; set; }
