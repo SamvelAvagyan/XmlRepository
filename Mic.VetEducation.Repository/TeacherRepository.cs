@@ -34,7 +34,7 @@ namespace Mic.VetEducation.Repository
                 {
                     _source = XmlHelper
                         .ReadFromXml<Teacher>(FileName)
-                        .ToDictionary(t => t.ID);
+                        .ToDictionary(t => t.Id);
                 }
                 catch (Exception ex)
                 {
@@ -52,7 +52,7 @@ namespace Mic.VetEducation.Repository
 
         public void Add(Teacher t)
         {
-            _source.Add(t.ID, t);
+            _source.Add(t.Id, t);
         }
 
         public void SaveChanges()

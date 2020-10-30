@@ -29,9 +29,9 @@ namespace Mic.VetEducation.Repository.Test
 
             var teachRepo = new TeacherRepository();
 
-            teachRepo.Add(new Teacher { ID = 1, FirstName = "A1", LastName = "A1yan" });
-            teachRepo.Add(new Teacher { ID = 2, FirstName = "A2", LastName = "A2yan" });
-            teachRepo.Add(new Teacher { ID = 3, FirstName = "A3", LastName = "A3yan" });
+            teachRepo.Add(new Teacher { Id = 1, FirstName = "A1", LastName = "A1yan" });
+            teachRepo.Add(new Teacher { Id = 2, FirstName = "A2", LastName = "A2yan" });
+            teachRepo.Add(new Teacher { Id = 3, FirstName = "A3", LastName = "A3yan" });
 
             teachRepo.SaveChanges();
 
@@ -72,7 +72,7 @@ namespace Mic.VetEducation.Repository.Test
             {
                 yield return new Teacher
                 {
-                    ID = i + 1,
+                    Id = i + 1,
                     FirstName = $"A{i}",
                     LastName = $"A{i}yan"
                 };
@@ -86,7 +86,7 @@ namespace Mic.VetEducation.Repository.Test
             {
                 yield return new User
                 {
-                    ID = i + 1,
+                    Id = i + 1,
                     FirstName = $"A{i}",
                     LastName = $"A{i}yan",
                     Age = (byte)rnd.Next(18, 70)

@@ -29,7 +29,7 @@ namespace Mic.VetEducation.Repository
                 {
                     _source = XmlHelper
                         .ReadFromXml<TModel>(FileName)
-                        .ToDictionary(t => t.ID);
+                        .ToDictionary(t => t.Id);
                 }
                 catch (Exception ex)
                 {
@@ -47,7 +47,7 @@ namespace Mic.VetEducation.Repository
 
         public void Add(TModel t) 
         {
-            _source.Add(t.ID, t);
+            _source.Add(t.Id, t);
         }
 
         public void SaveChanges()
