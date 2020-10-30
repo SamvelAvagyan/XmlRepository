@@ -2,7 +2,7 @@
 
 namespace Mic.VetEducation.Repository.XmlRepositories
 {
-    public class TeacherRepository : BaseRepository<Teacher>
+    public class TeacherRepository : BaseRepository<Teacher>, ITeacherRepository
     {
         public TeacherRepository() : this("Teachers.xml")
         { }
