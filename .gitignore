@@ -1,0 +1,9 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/.vs
+/Mic.VetEducation.Repository/bin/Debug/netstandard2.0
+/Mic.VetEducation.Repository/obj
+/Mic.VetEducation.Repository.Test/bin/Debug/netcoreapp3.1
+/Mic.VetEducation.Repository.Test/obj
