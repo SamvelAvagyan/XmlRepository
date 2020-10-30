@@ -1,6 +1,7 @@
 ﻿using Mic.VetEducation.Repository;
 using Mic.VetEducation.Repository.Migrations;
 using Mic.VetEducation.Repository.Models;
+using Mic.VetEducation.Repository.XmlRepositories;
 using System;
 using System.Collections;
 using System.Collections.Generic;

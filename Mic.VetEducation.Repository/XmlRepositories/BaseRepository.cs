@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Mic.VetEducation.Repository
+namespace Mic.VetEducation.Repository.XmlRepositories
 {
     public class BaseRepository<TModel> : IBaseRepository<TModel>
         where TModel : BaseModel, new() 
