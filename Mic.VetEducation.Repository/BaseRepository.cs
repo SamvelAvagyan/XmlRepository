@@ -6,7 +6,8 @@ using System.Text;
 
 namespace Mic.VetEducation.Repository
 {
-    public class BaseRepository<TModel> where TModel : BaseModel, new()
+    public class BaseRepository<TModel> : IBaseRepository<TModel>
+        where TModel : BaseModel, new() 
     {
         bool _isLoaded;
         Dictionary<int, TModel> _source;
