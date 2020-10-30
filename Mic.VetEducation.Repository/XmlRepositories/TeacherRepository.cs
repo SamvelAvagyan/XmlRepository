@@ -10,5 +10,11 @@ namespace Mic.VetEducation.Repository.XmlRepositories
         public TeacherRepository(string fileName)
             : base(fileName)
         { }
+
+        public void UpdateSalary(int id, decimal value)
+        {
+            var uni = ReadOrDefult(id);
+            uni.Salary = value;
+        }
     }
 }
