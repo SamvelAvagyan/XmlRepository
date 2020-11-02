@@ -2,6 +2,7 @@
 using Mic.VetEducation.Repository.Migrations;
 using Mic.VetEducation.Repository.Models;
 using Mic.VetEducation.Repository.XmlRepositories;
+using Serilog;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -13,7 +14,11 @@ namespace Mic.VetEducation.Repository.Test
     {
         static void Main(string[] args)
         {
-            //var repo = new StudentRepository();
+            ILogger log = new LoggerConfiguration()
+                        .WriteTo.File("log.txt", rollingInterval: RollingInterval.Day)
+                        .CreateLogger();         
+
+            var repo = new StudentRepository(Files.Student, log);
             //var res = repo.ReadToList();
 
             //repo.Add(new Student { ID = 1, FirstName = "A1", LastName = "A1yan" });
@@ -26,17 +31,17 @@ namespace Mic.VetEducation.Repository.Test
             //repo.Add(new Student { ID = 3, FirstName = "A3", LastName = "A3yan", Mark = 18 });
             //repo.Add(new Student { ID = 4, FirstName = "A4", LastName = "A4yan", Mark = 19 });
             //repo.Add(new Student { ID = 5, FirstName = "A5", LastName = "A5yan", Mark = 20 });
-            //repo.SaveChanges();
+            //repo.SaveChanges();          
 
-            var teachRepo = new TeacherRepository();
+            //var teachRepo = new TeacherRepository();
 
-            teachRepo.Add(new Teacher { Id = 1, FirstName = "A1", LastName = "A1yan" });
+            /*teachRepo.Add(new Teacher { Id = 1, FirstName = "A1", LastName = "A1yan" });
             teachRepo.Add(new Teacher { Id = 2, FirstName = "A2", LastName = "A2yan" });
             teachRepo.Add(new Teacher { Id = 3, FirstName = "A3", LastName = "A3yan" });
 
-            teachRepo.SaveChanges();
+            teachRepo.SaveChanges();*/
 
-            var res2 = teachRepo.ReadToList();
+            //var res3 = teachRepo.ReadToList();
 
             //var usersRepo = new UserRepository();
 

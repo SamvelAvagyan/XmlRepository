@@ -1,4 +1,5 @@
 ﻿using Mic.VetEducation.Repository.Models;
+using Serilog;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,11 +12,13 @@ namespace Mic.VetEducation.Repository.XmlRepositories
     {
         private bool _isLoaded;
         private Dictionary<int, TModel> _source;
+        protected readonly ILogger _logger;
 
-        public BaseRepository(string fileName)
+        public BaseRepository(string fileName, ILogger logger)
         {
             FileName = fileName;
             _source = new Dictionary<int, TModel>();
+            _logger = logger;
         }
 
         public string FileName { get; private set; }
@@ -28,10 +31,15 @@ namespace Mic.VetEducation.Repository.XmlRepositories
 
         public TModel Read(int id)
         {
+            _logger.Information($"Start read id {id}");
+
             if(!_source.TryGetValue(id, out TModel model))
             {
                 throw new Exception($"There is no {typeof(TModel).Name} with {id} Id");
             }
+
+            _logger.Information($"End read id {id}");
+
 
             return model;
         }
@@ -50,7 +58,7 @@ namespace Mic.VetEducation.Repository.XmlRepositories
                 }
                 catch (Exception ex)
                 {
-
+                    _logger.Error(ex.Message);
                 }
             }
 
@@ -70,7 +78,12 @@ namespace Mic.VetEducation.Repository.XmlRepositories
 
         public void SaveChanges()
         {
+            _logger.Information("Start Save");
+
             XmlHelper.SaveToXml<TModel>(_source.Values.ToList(), FileName);
+
+            _logger.Information("End Save");
+
         }
     }
 }
