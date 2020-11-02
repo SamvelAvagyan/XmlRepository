@@ -7,3 +7,5 @@
 /Mic.VetEducation.Repository/obj
 /Mic.VetEducation.Repository.Test/bin/Debug/netcoreapp3.1
 /Mic.VetEducation.Repository.Test/obj
+/Mic.VetEducation.Repository.XmlRepositories/obj
+/Mic.VetEducation.Repository.XmlRepositories/bin/Debug/netstandard2.0

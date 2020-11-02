@@ -6,7 +6,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Mic.VetEducation.Repository\Mic.VetEducation.Repository.csproj" />
+    <ProjectReference Include="..\Mic.VetEducation.Repository.XmlRepositories\Mic.VetEducation.Repository.XmlRepositories.csproj" />
   </ItemGroup>
 
 </Project>
