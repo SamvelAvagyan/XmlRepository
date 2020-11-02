@@ -1,13 +1,12 @@
 ﻿using Mic.VetEducation.Repository.Models;
+using Serilog;
 
 namespace Mic.VetEducation.Repository.XmlRepositories
 {
     public class UniversityRepository : BaseRepository<University>
     {
-        public UniversityRepository() : this("University.xml") { }
-
-        public UniversityRepository(string fileName)
-            : base(fileName)
+        public UniversityRepository(string fileName, ILogger logger)
+            : base(fileName, logger)
         { }
     }
 }

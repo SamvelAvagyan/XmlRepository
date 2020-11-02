@@ -12,11 +12,13 @@ namespace Mic.VetEducation.Repository.XmlRepositories
     {
         private bool _isLoaded;
         private Dictionary<int, TModel> _source;
+        protected readonly ILogger _logger;
 
-        public BaseRepository(string fileName)
+        public BaseRepository(string fileName, ILogger logger)
         {
             FileName = fileName;
             _source = new Dictionary<int, TModel>();
+            _logger = logger;
         }
 
         public string FileName { get; private set; }
@@ -50,12 +52,8 @@ namespace Mic.VetEducation.Repository.XmlRepositories
                         .ToDictionary(t => t.Id);
                 }
                 catch (Exception ex)
-                {
-                    var log = new LoggerConfiguration()
-                        .WriteTo.File("log.txt", rollingInterval: RollingInterval.Day)
-                        .CreateLogger();
-
-                    log.Error(ex.Message);
+                {                   
+                    
                 }
             }
 

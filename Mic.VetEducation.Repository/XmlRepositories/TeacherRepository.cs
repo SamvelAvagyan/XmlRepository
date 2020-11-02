@@ -1,14 +1,12 @@
 ﻿using Mic.VetEducation.Repository.Models;
+using Serilog;
 
 namespace Mic.VetEducation.Repository.XmlRepositories
 {
     public class TeacherRepository : BaseRepository<Teacher>, ITeacherRepository
     {
-        public TeacherRepository() : this("Teachers.xml")
-        { }
-
-        public TeacherRepository(string fileName)
-            : base(fileName)
+        public TeacherRepository(string fileName, ILogger logger)
+            : base(fileName, logger)
         { }
 
         public void UpdateSalary(int id, decimal value)
