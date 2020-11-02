@@ -1,12 +1,8 @@
-﻿using Mic.VetEducation.Repository;
-using Mic.VetEducation.Repository.Migrations;
-using Mic.VetEducation.Repository.Models;
+﻿using Mic.VetEducation.Repository.Models;
 using Mic.VetEducation.Repository.XmlRepositories;
 using Serilog;
 using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
 
 namespace Mic.VetEducation.Repository.Test
 {
@@ -19,7 +15,7 @@ namespace Mic.VetEducation.Repository.Test
                         .CreateLogger();         
 
             var repo = new StudentRepository(Files.Student, log);
-            //var res = repo.ReadToList();
+            var res = repo.ReadToList();
 
             //repo.Add(new Student { ID = 1, FirstName = "A1", LastName = "A1yan" });
             //repo.Add(new Student { ID = 2, FirstName = "A2", LastName = "A2yan" });
