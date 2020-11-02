@@ -31,10 +31,15 @@ namespace Mic.VetEducation.Repository.XmlRepositories
 
         public TModel Read(int id)
         {
+            _logger.Information($"Start read id {id}");
+
             if(!_source.TryGetValue(id, out TModel model))
             {
                 throw new Exception($"There is no {typeof(TModel).Name} with {id} Id");
             }
+
+            _logger.Information($"End read id {id}");
+
 
             return model;
         }
@@ -52,8 +57,8 @@ namespace Mic.VetEducation.Repository.XmlRepositories
                         .ToDictionary(t => t.Id);
                 }
                 catch (Exception ex)
-                {                   
-                    
+                {
+                    _logger.Error(ex.Message);
                 }
             }
 
@@ -73,7 +78,12 @@ namespace Mic.VetEducation.Repository.XmlRepositories
 
         public void SaveChanges()
         {
+            _logger.Information("Start Save");
+
             XmlHelper.SaveToXml<TModel>(_source.Values.ToList(), FileName);
+
+            _logger.Information("End Save");
+
         }
     }
 }
