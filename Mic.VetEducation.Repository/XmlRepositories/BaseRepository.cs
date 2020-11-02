@@ -1,4 +1,5 @@
 ﻿using Mic.VetEducation.Repository.Models;
+using Serilog;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -50,7 +51,11 @@ namespace Mic.VetEducation.Repository.XmlRepositories
                 }
                 catch (Exception ex)
                 {
+                    var log = new LoggerConfiguration()
+                        .WriteTo.File("log.txt", rollingInterval: RollingInterval.Day)
+                        .CreateLogger();
 
+                    log.Error(ex.Message);
                 }
             }
 
