@@ -14,7 +14,11 @@ namespace Mic.VetEducation.Repository.Test
     {
         static void Main(string[] args)
         {
-            //var repo = new StudentRepository();
+            ILogger log = new LoggerConfiguration()
+                        .WriteTo.File("log.txt", rollingInterval: RollingInterval.Day)
+                        .CreateLogger();         
+
+            var repo = new StudentRepository(Files.Student, log);
             //var res = repo.ReadToList();
 
             //repo.Add(new Student { ID = 1, FirstName = "A1", LastName = "A1yan" });
