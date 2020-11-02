@@ -1,10 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.IO;
-using System.Text;
 using System.Xml.Serialization;
 
-namespace Mic.VetEducation.Repository
+namespace Mic.VetEducation.Repository.XmlRepositories
 {
     internal static class XmlHelper
     {
